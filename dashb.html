@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie Express - Food Delivery</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fffaf5;
+            color: #333;
+        }
+
+    
+        nav {
+            background: #ff5722;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav h2 {
+            font-size: 26px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffe0b2;
+        }
+
+    
+        .hero {
+            padding: 65px 8%;
+            text-align: center;
+            background: #ffe5d9;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: #e64a19;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ff5722;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #bf360c;
+            transform: scale(1.05);
+        }
+
+        
+        section {
+            padding: 40px 8%;
+        }
+
+        section h2 {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .category {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .category img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        
+        .food-container {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .food-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px #00000015;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px #00000025;
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .food-info {
+            padding: 18px;
+        }
+
+        .food-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #e64a19;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 12px 0;
+        }
+
+        .food-info button {
+            border: none;
+            background: #ff5722;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .food-info button:hover {
+            background: #bf360c;
+        }
+
+
+        .offers {
+            background: #ff5722;
+            color: white;
+            text-align: center;
+        }
+
+        .offers h2 {
+            font-size: 30px;
+        }
+
+        .offers p {
+            margin: 12px 0;
+        }
+
+ 
+        .restaurant {
+            background: white;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 12px #00000010;
+        }
+
+        .restaurant h3 {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #292929;
+            color: white;
+            padding: 35px 8%;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #ffab91;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 5px;
+                display: inline-block;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+   
+    <nav>
+        <h2>🍔 Foodie Express</h2>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#food">Menu</a>
+            <a href="#restaurants">Restaurants</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero" id="home">
+        <h1>Delicious Food, Delivered Fast!</h1>
+        <p>Order your favourite meals from the best restaurants near you.</p>
+        <a href="#food" class="btn">Explore Menu</a>
+    </div>
+
+    <!-- Categories -->
+    <section id="categories">
+        <h2>Food Categories</h2>
+
+        <div class="categories">
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-157 pizza" alt="Pizza"
+                     onerror="this.src='https://placehold.co/100x100?text=Pizza'">
+                <p>Pizza</p>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200" alt="Burger">
+                <p>Burgers</p>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200" alt="Pizza">
+                <p>Italian</p>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200" alt="Healthy food">
+                <p>Healthy</p>
+            </div>
+
+            <div class="category">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=200" alt="Dessert">
+                <p>Desserts</p>
+            </div>
+        </div>
+    </section>
+
+  
+    <section class="offers">
+        <h2>🎉 Special Offers</h2>
+        <p>Get 30% OFF on your first order!</p>
+        <p>Use coupon code: <strong>FOOD30</strong></p>
+        <a href="#food" class="btn">Order Now</a>
+    </section>
+
+
+    <section id="food">
+        <h2>Popular Dishes</h2>
+
+        <div class="food-container">
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Burger">
+                <div class="food-info">
+                    <h3>Cheese Burger</h3>
+                    <p>Juicy burger with cheese and fresh vegetables.</p>
+                    <p class="price">₹149</p>
+                    <button onclick="orderFood('Cheese Burger')">Order Now</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500" alt="Pizza">
+                <div class="food-info">
+                    <h3>Margherita Pizza</h3>
+                    <p>Classic pizza with cheese and tomato sauce.</p>
+                    <p class="price">₹249</p>
+                    <button onclick="orderFood('Margherita Pizza')">Order Now</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500" alt="Noodles">
+                <div class="food-info">
+                    <h3>Veg Noodles</h3>
+                    <p>Delicious noodles tossed with fresh vegetables.</p>
+                    <p class="price">₹129</p>
+                    <button onclick="orderFood('Veg Noodles')">Order Now</button>
+                </div>
+            </div>
+
+            <div class="food-card">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500" alt="Grilled food">
+                <div class="food-info">
+                    <h3>Grilled Platter</h3>
+                    <p>A tasty platter with delicious grilled bites.</p>
+                    <p class="price">₹299</p>
+                    <button onclick="orderFood('Grilled Platter')">Order Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="restaurants">
+        <h2>Popular Restaurants</h2>
+
+        <div class="food-container">
+            <div class="restaurant">
+                <h3>🍕 Italian Corner</h3>
+                <p>Pizza & Pasta</p>
+                <p>⭐ 4.5 | 25 min delivery</p>
+            </div>
+
+            <div class="restaurant">
+                <h3>🍔 Burger House</h3>
+                <p>Burgers & Fries</p>
+                <p>⭐ 4.7 | 20 min delivery</p>
+            </div>
+
+            <div class="restaurant">
+                <h3>🍜 Spice Kitchen</h3>
+                <p>Indian & Chinese</p>
+                <p>⭐ 4.6 | 30 min delivery</p>
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="contact">
+        <h2>Foodie Express</h2>1
+        <p>Good food, great mood!</p>
+        <p>Contact: +91 98765 43210</p>
+        <p>Email: support@foodieexpress.com</p>
+        <p>
+            <a href="#home">Home</a> |
+            <a href="#food">Menu</a> |
+            <a href="#contact">Contact Us</a>
+        </p>
+        <p>© 2026 Foodie Express. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function orderFood(foodName) {
+            alert("You selected " + foodName + "! Thank you for ordering.");
+        }
+    </script>
+
+</body>
+</html>

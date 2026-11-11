@@ -1,0 +1,41 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f4faf5;color:#173b2a}
+header{background:white;padding:15px 7%;display:flex;align-items:center;gap:25px;flex-wrap:wrap;box-shadow:0 2px 8px #bbb}
+.logo{font-size:28px;color:#08783e}.logo span{color:#f15a24}
+header p{color:#287448;flex:1}
+nav a{color:#174c31;text-decoration:none;margin:8px;font-size:14px;font-weight:bold}
+section{padding:45px 8%;scroll-margin-top:80px}
+.hero{min-height:390px;display:flex;align-items:center;background:linear-gradient(90deg,#e6f5e9cc,#ffffff55),url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1400&q=80") center/cover}
+.hero h1{font-size:42px;color:#124b2d}.hero h1 span{color:#ef5b2a}
+.hero p{margin:15px 0;font-size:18px}
+button{border:0;background:#138447;color:white;padding:11px 22px;border-radius:6px;cursor:pointer;font-weight:bold;margin:5px}
+button:hover{background:#09652f}.orange{background:#ef642c}
+.stats,.features,.dash{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stats div,.features div,.dash div{background:white;padding:22px;text-align:center;border-radius:10px;box-shadow:0 2px 8px #ddd}
+.stats b,.stats small{display:block;margin-top:8px}
+.mission{text-align:center;background:#e5f6e9}
+.card{max-width:850px;margin:25px auto;background:white;border-radius:12px;box-shadow:0 3px 12px #ddd}
+.card h2,.dashboard h2,.about h2{color:#08783e;margin-bottom:20px}
+form{display:grid;gap:12px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ccd8cf;border-radius:6px;font-size:14px}
+textarea{min-height:80px}
+form button{margin:0}
+.food{display:flex;align-items:center;gap:15px;border:1px solid #ddd;padding:15px;margin:10px 0;border-radius:8px}
+.food span{flex:1;color:#666;font-size:13px}
+.food button{margin:0}
+.track p{padding:15px;border-left:4px solid #18a357;background:#f1faf3;margin:8px}
+.dashboard{background:#eaf7ed}
+.dash div b{font-size:28px;color:#168148;display:block}
+.dash small{display:block;margin-top:5px}
+.bars{height:220px;display:flex;align-items:end;gap:25px;margin-top:20px}
+.bars span{background:#42a968;color:white;width:80px;text-align:center;padding:8px;border-radius:5px 5px 0 0}
+.about{text-align:center}.features{margin:20px 0}
+.about li{margin:8px}
+footer{text-align:center;background:#075c32;color:white;padding:30px}
+@media(max-width:700px){
+ header{display:block;text-align:center}.logo{margin-bottom:8px}
+ nav{margin-top:10px}.hero h1{font-size:32px}
+ .stats,.features,.dash{grid-template-columns:1fr 1fr}
+ .food{display:block}.food span{display:block;margin:8px 0}
+ section{padding:30px 5%}
+}

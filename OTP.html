@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+</head>
+<body>
+  <main>
+    <h1>OTP Verification</h1>
+    <label for="otp">Enter your 4-digit OTP</label>
+    <input
+      id="otp"
+      type="text"
+      inputmode="numeric"
+      maxlength="4"
+      autocomplete="one-time-code"
+      aria-describedby="result"
+    >
+    <button id="verify" type="button">Verify</button>
+    <p id="result" aria-live="polite"></p>
+  </main>
+
+  <script>
+    const otpInput = document.getElementById("otp");
+    const result = document.getElementById("result");
+
+    document.getElementById("verify").addEventListener("click", () => {
+      result.textContent = otpInput.value === "1234" ? "Verifed" : "Wrong OTP";
+    });
+  </script>
+</body>
+</html>

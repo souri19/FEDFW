@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 5px 15px #555;
+        }
+
+        input {
+            padding: 12px;
+            width: 65%;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 12px;
+            background: #2193b0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #176b85;
+        }
+
+        #weather {
+            margin-top: 25px;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🌤 Weather Dashboard</h2>
+
+    <input type="text" id="city" list="cityNames" placeholder="Enter city name">
+    <datalist id="cityNames">
+        <option value="Delhi">
+        <option value="Mumbai">
+        <option value="Bengaluru">
+        <option value="Chennai">
+        <option value="Kolkata">
+        <option value="Hyderabad">
+        <option value="Pune">
+        <option value="Ahmedabad">
+        <option value="Jaipur">
+        <option value="Lucknow">
+        <option value="Kanpur">
+        <option value="Nagpur">
+        <option value="Indore">
+        <option value="Patna">
+        <option value="Bhopal">
+        <option value="Visakhapatnam">
+        <option value="Thiruvananthapuram">
+        <option value="Coimbatore">
+        <option value="Kochi">
+        <option value="Mysuru">
+        <option value="Varanasi">
+        <option value="Agra">
+        <option value="Gurugram">
+        <option value="Noida">
+        <option value="Chandigarh">
+        <option value="Amritsar">
+        <option value="Jodhpur">
+        <option value="Raipur">
+        <option value="Surat">
+        <option value="Vadodara">
+        <option value="Rajkot">
+        <option value="Nashik">
+        <option value="Guwahati">
+        <option value="Shillong">
+        <option value="Imphal">
+        <option value="Aizawl">
+        <option value="Gangtok">
+        <option value="Itanagar">
+        <option value="Port Blair">
+        <option value="Bhubaneswar">
+        <option value="Cuttack">
+        <option value="Ranchi">
+        <option value="Jamshedpur">
+        <option value="Dhanbad">
+        <option value="Srinagar">
+        <option value="Leh">
+        <option value="Shimla">
+        <option value="Dehradun">
+    </datalist>
+    <button onclick="getWeather()">Search</button>
+
+    <div id="weather"></div>
+</div>
+
+<script>
+const API_KEY = "YOUR_API_KEY";
+
+async function getWeather() {
+
+    const city = document.getElementById("city").value.trim();
+    const result = document.getElementById("weather");
+
+    if (!city) {
+        result.innerHTML = "<p class='error'>Please enter a city name!</p>";
+        return;
+    }
+
+    result.innerHTML = "Loading...";
+
+    try {
+        const response = await fetch(
+            `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`
+        );
+
+        if (!response.ok) {
+            throw new Error("City not found!");
+        }
+
+        const data = await response.json();
+
+        result.innerHTML = `
+            <h2>${data.name}, ${data.sys.country}</h2>
+            <h1>${data.main.temp} °C</h1>
+            <h3>${data.weather[0].description}</h3>
+            <p>🌡 Feels Like: ${data.main.feels_like} °C</p>
+            <p>💧 Humidity: ${data.main.humidity}%</p>
+            <p>💨 Wind Speed: ${data.wind.speed} m/s</p>
+            <p>🌤 Weather: ${data.weather[0].main}</p>
+        `;
+
+    } catch (error) {
+        result.innerHTML =
+            `<p class="error">${error.message}</p>`;
+    }
+}
+
+// Search using Enter key
+document.getElementById("city").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        getWeather();
+    }
+});
+</script>
+
+</body>
+</html>
